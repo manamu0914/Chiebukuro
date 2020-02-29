@@ -1,0 +1,20 @@
+def get_average(img_matrix):
+    height = len(img_matrix)
+    width = len(img_matrix[0])
+    totalRed = 0
+    totalBlue = 0
+    totalGreen = 0
+    for y in range(2):
+        for x in range(width):
+            totalRed += img_matrix[y][x][0] 
+            totalBlue += img_matrix[y][x][1]
+            totalGreen += img_matrix[y][x][2]       
+    img_matrix[0][0][0] = totalRed//4
+    img_matrix[0][0][1] = totalBlue//4
+    img_matrix[0][0][2] = totalGreen//4
+    return img_matrix
+
+print(get_average([[[127, 127, 127], [0, 0, 0]],
+[[255, 255, 0], [50, 128, 255]],
+[[0, 0, 255], [0, 255, 0]],
+[[255, 0, 0], [255, 255, 255]]]))
